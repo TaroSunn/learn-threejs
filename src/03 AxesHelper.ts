@@ -19,7 +19,6 @@ const material = new THREE.MeshBasicMaterial({
   color: 0xffff00
 })
 const cube = new THREE.Mesh(geometry, material)
-cube.position.set(5,1,2)
 scene.add(cube)
 
 const canvas = document.querySelector('.webgl') as HTMLCanvasElement
@@ -31,6 +30,7 @@ const renderer = new THREE.WebGLRenderer({
 
 // 设置渲染尺寸
 renderer.setSize(window.innerWidth, window.innerHeight)
+
 
 // 创建轨道控制器
 const controls = new OrbitControls(camera, canvas)
