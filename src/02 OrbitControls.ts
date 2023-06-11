@@ -35,10 +35,6 @@ renderer.setSize(window.innerWidth, window.innerHeight)
 // 创建轨道控制器
 const controls = new OrbitControls(camera, canvas)
 
-// 添加坐标轴辅助器
-const axesHelper = new THREE.AxesHelper(5)
-scene.add(axesHelper)
-
 function animation() {
   requestAnimationFrame(animation)
   renderer.render(scene, camera)
