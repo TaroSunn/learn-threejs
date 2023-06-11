@@ -1,7 +1,5 @@
 import './style.css'
 import * as THREE from 'three'
-// 导入轨道控制器
-import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls'
 
 // 创建场景
 const scene = new THREE.Scene()
@@ -16,7 +14,7 @@ scene.add(camera)
 const geometry = new THREE.BoxGeometry(1, 1, 1)
 // 创建材质
 const material = new THREE.MeshBasicMaterial({
-  color: 0xffff00
+  color: 0xff0000
 })
 const cube = new THREE.Mesh(geometry, material)
 scene.add(cube)
@@ -31,12 +29,4 @@ const renderer = new THREE.WebGLRenderer({
 // 设置渲染尺寸
 renderer.setSize(window.innerWidth, window.innerHeight)
 
-
-// 创建轨道控制器
-const controls = new OrbitControls(camera, canvas)
-
-function animation() {
-  requestAnimationFrame(animation)
-  renderer.render(scene, camera)
-}
-animation()
+renderer.render(scene, camera)
