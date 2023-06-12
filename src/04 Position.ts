@@ -19,9 +19,7 @@ const material = new THREE.MeshBasicMaterial({
   color: 0xffff00
 })
 const cube = new THREE.Mesh(geometry, material)
-// cube.position.set(5,1,2)
-// cube.scale.set(3, 2, 1)
-cube.rotation.set(Math.PI / 1, 0 , 0)
+cube.position.set(5,1,2)
 scene.add(cube)
 
 const canvas = document.querySelector('.webgl') as HTMLCanvasElement
@@ -43,7 +41,6 @@ scene.add(axesHelper)
 
 function animation() {
   requestAnimationFrame(animation)
-  cube.rotation.x -= 0.01
   renderer.render(scene, camera)
 }
 animation()
