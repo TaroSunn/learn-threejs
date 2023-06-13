@@ -1,6 +1,5 @@
 import './style.css'
 import * as THREE from 'three'
-import gsap from 'gsap'
 // 导入轨道控制器
 import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls'
 
@@ -40,17 +39,16 @@ const axesHelper = new THREE.AxesHelper(5)
 scene.add(axesHelper)
 
 // 设置clock
+
 const clock = new THREE.Clock()
 
-  // 设置动画
-gsap.to(cube.position, {x: 5, duration: 5, ease: 'power1.inout',repeat: -1, 
-yoyo: true,onComplete: () => {
-    console.log('complete')
-  }})
-gsap.to(cube.rotation, {x: 2 * Math.PI, duration: 5, ease: 'power1.inout', repeat: -1,yoyo: true})
-
 function animation() {
-
+  // 获取时钟运行总时长
+  let time = clock.getElapsedTime()
+  let deltaTime = clock.getDelta()
+  // console.log(time)
+  let t = time % 5
+  cube.position.x = t* 1
   requestAnimationFrame(animation)
 
   renderer.render(scene, camera)
