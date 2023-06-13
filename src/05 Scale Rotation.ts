@@ -19,6 +19,9 @@ const material = new THREE.MeshBasicMaterial({
   color: 0xffff00
 })
 const cube = new THREE.Mesh(geometry, material)
+// cube.position.set(5,1,2)
+// cube.scale.set(3, 2, 1)
+cube.rotation.set(Math.PI / 1, 0 , 0)
 scene.add(cube)
 
 const canvas = document.querySelector('.webgl') as HTMLCanvasElement
@@ -38,19 +41,9 @@ const controls = new OrbitControls(camera, canvas)
 const axesHelper = new THREE.AxesHelper(5)
 scene.add(axesHelper)
 
-// 设置clock
-
-const clock = new THREE.Clock()
-
 function animation() {
-  // 获取时钟运行总时长
-  let time = clock.getElapsedTime()
-  let deltaTime = clock.getDelta()
-  // console.log(time)
-  let t = time % 5
-  cube.position.x = t* 1
   requestAnimationFrame(animation)
-
+  cube.rotation.x -= 0.01
   renderer.render(scene, camera)
 }
 animation()
